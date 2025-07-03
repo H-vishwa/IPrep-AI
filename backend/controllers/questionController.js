@@ -1,4 +1,3 @@
-import React from "react";
 import Session from "../models/Session.js";
 import Question from "../models/Question.js";
 
