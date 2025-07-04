@@ -2,12 +2,12 @@ import React, { useContext } from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import Input from "../../components/Inputs/input";
-import ProfilePhotoSelector from "../../components/Inputs/ProfilePhotoSelector";
 import { validateEmail } from "../../utils/helper";
 import { UserContext } from "../../context/userContext";
 import axiosInstance from "../../utils/axiosInstance";
 import { API_PATHS } from "../../utils/apiPaths";
-import uploadImage from "../../utils/uploadImage";
+// import ProfilePhotoSelector from "../../components/Inputs/ProfilePhotoSelector";
+// import uploadImage from "../../utils/uploadImage";
 
 const SignUp = ({ setCurrentPage }) => {
   const [profilePic, setprofilePic] = useState(null);
@@ -22,7 +22,7 @@ const SignUp = ({ setCurrentPage }) => {
   const handleSignUp = async (e) => {
     e.preventDefault();
 
-    let profileImageUrl = "";
+    // let profileImageUrl = "";
 
     if (!fullName) {
       setError("Please enter full name");
@@ -42,16 +42,16 @@ const SignUp = ({ setCurrentPage }) => {
 
     //SignUp API call
     try {
-      if (profilePic) {
-        const imageUploadRes = await uploadImage(profilePic);
-        profileImageUrl = imageUploadRes.imageUrl || "";
-      }
+      // if (profilePic) {
+      //   const imageUploadRes = await uploadImage(profilePic);
+      //   profileImageUrl = imageUploadRes.imageUrl || "";
+      // }
 
       const response = await axiosInstance.post(API_PATHS.AUTH.REGISTER,{
         name: fullName,
         email,
         password,
-        profileImageUrl,
+        // profileImageUrl,
       })
 
       const { token } = response.data;
@@ -80,7 +80,7 @@ const SignUp = ({ setCurrentPage }) => {
       </p>
 
       <form onSubmit={handleSignUp}>
-        <ProfilePhotoSelector image={profilePic} setImage={setprofilePic} />
+{/*         <ProfilePhotoSelector image={profilePic} setImage={setprofilePic} /> */}
 
         <div className="grid grid-cols-1 md:grid-cols-1 gap-0.5">
           <Input
