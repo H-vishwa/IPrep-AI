@@ -71,7 +71,7 @@ const SignUp = ({ setCurrentPage }) => {
   };
 
   return (
-    <div className="w-[90vw] h-[99vh] md:w-[33vw] p-5 flex flex-col justify-center">
+    <div className="w-[90vw] md:w-[33vw] p-5 flex flex-col justify-center">
       <h3 className="text-lg font-semibold text-black mt-4">
         Create an Account
       </h3>
